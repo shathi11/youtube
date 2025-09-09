@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Premium Offer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg,#1d2671,#c33764);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: rgba(0,0,0,0.7);
+      padding: 50px 35px;
+      border-radius: 25px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0px 0px 40px rgba(0,0,0,0.7);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg,#ffcc00,#ff5722);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 20px;
+      color: white;
+      background: linear-gradient(90deg,#ff512f,#dd2476);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+    }
+    .btn:hover {
+      background: linear-gradient(90deg,#dd2476,#ff512f);
+      transform: scale(1.08);
+    }
+    .timer {
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    .social-proof {
+      margin-top: 25px;
+      font-size: 14px;
+      opacity: 0.85;
+      color: #ddd;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 Premium Exclusive Offer!</h1>
+    <p>Claim your reward today. Limited time only!</p>
+    
+    <!-- Backup Button -->
+    <a id="offerBtn" class="btn">👉 Get Started</a>
+
+    <!-- Timer -->
+    <div class="timer">⏳ Offer ends in: <span id="countdown">00:30</span></div>
+
+    <!-- Social Proof -->
+    <div class="social-proof">✅ Already 2,531 people claimed today!</div>
+
+    <p style="margin-top:20px; font-size:14px; opacity:0.7;">
+      Redirecting automatically... যদি না হয়, উপরের বাটনে ক্লিক করুন।
+    </p>
+  </div>
+
+  <script>
+    // ✅ তোমার Advirtica direct link
+    const baseLink = "https://data156.click/d60adb51b5caac3e2fa4/7f1c58e360/?placementName=default";
+
+    // YouTube tracking এর জন্য subid attach করা
+    const subid = new URLSearchParams(window.location.search).get("subid") || "YouTube";
+    const finalLink = baseLink + "&subid=" + subid;
+
+    // Backup button এ link বসানো
+    document.getElementById("offerBtn").href = finalLink;
+
+    // Auto redirect (3 seconds delay)
+    setTimeout(() => {
+      window.location.replace(finalLink);
+    }, 3000);
+
+    // Countdown Timer
+    let seconds = 30;
+    const countdownEl = document.getElementById("countdown");
+    const timer = setInterval(() => {
+      seconds--;
+      const display = seconds < 10 ? "00:0" + seconds : "00:" + seconds;
+      countdownEl.textContent = display;
+      if (seconds <= 0) clearInterval(timer);
+    }, 1000);
+  </script>
+</body>
+</html>
